@@ -10,6 +10,15 @@ const GlobalStyles = createGlobalStyle`
     min-width:1200px;
     font-family: 'Noto Sans KR', sans-serif;
   }
+
+  @keyframes fade-in{
+    0% {
+      transform: translateY(7px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
 `;
 
 export default GlobalStyles;
