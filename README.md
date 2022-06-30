@@ -33,7 +33,9 @@ props를 설정하여 재사용이 가능한 컴포넌트로 만들 수 있다�
 
 opacity=0 으로 초기 return 해주고, useEffect를 이용하여 컴포넌트가 생길 때 opacity=1 와 animation을 설정해주었습니다.
 
-`orderNum:number`을 parameter로 받아서 몇 번째 순서로 opacity=1 이 될 지 결정했습니다. ref
+`orderNum:number`을 parameter로 받아서 몇 번째 순서로 opacity=1 이 될 지 결정했습니다.
+
+> **DOM 요소 접근** querySelector로 요소에 접근할지, useRef를 이용하여 요소에 접근할지에 대해 고민했습니다. 전자의 방법은 className을 parameter로 전달해주는 방법으로 할 수 있었습니다. styled-component를 사용하여 className 이 바뀌기 때문에 후자의 방법을 선택하여 해결했습니다.
 
 ### 2. useCount Custom Hook 구현
 
