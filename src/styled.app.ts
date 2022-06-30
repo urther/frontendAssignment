@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const SectionContainer = styled.section`
-  margin: 150px 55px 0 55px;
+  margin: 150px auto 0 auto;
   display: flex;
-  justify-content: space-around;
+
+  width: 80%;
+  justify-content: space-evenly;
 `;
