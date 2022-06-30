@@ -22,7 +22,6 @@ const useCounter = (maxCountNumber: number): number => {
           setCurrentNum(tmpCurrentNum);
 
           if (tmpCurrentNum >= maxCountNumber) {
-            console.log(tmpCurrentNum, maxCountNumber);
             clearInterval(slowInterval);
           }
         }, SLOW_FRAME);
