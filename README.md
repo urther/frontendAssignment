@@ -19,11 +19,29 @@ props를 설정하여 재사용이 가능한 컴포넌트로 만들 수 있다�
 
 ### 3. 그 외 라이브러리
 
-- craco : CRA 을 사용하여 개발하다보니 절대 경로에 대한 커스텀이 필요하다고 생각했다. 오버라이딩해주는 craco 패키지를 이용하여 필요 기능은 구현하고 번거로운 설정은 덜어낼 수 있도록 했다.
+- craco : CRA 을 사용하여 개발하다보니 절대 경로에 대한 커스텀이 필요하다고 생각했습니다. 오버라이딩해주는 craco 패키지를 이용하여 필요 기능은 구현하고 번거로운 설정은 덜어낼 수 있도록 했습니다.
 
 ## 결과물
 
 ![2022-06-30 20 41 08](https://user-images.githubusercontent.com/65998556/176669693-b3278b62-d1e6-4fdc-94a0-94aa738a31f9.gif)
 
-
 ## 고민하고, 배울 수 있었던 점
+
+### 1. useFadeIn Custom Hook 구현
+
+3 개의 컴포넌트에서 opacity(투명도), 위로 뜨는듯한 애니메이션을 중복으로 사용한다고 판단하여 hook 으로 구현하였습니다.
+
+opacity=0 으로 초기 return 해주고, useEffect를 이용하여 컴포넌트가 생길 때 opacity=1 와 animation을 설정해주었습니다.
+
+`orderNum:number`을 parameter로 받아서 몇 번째 순서로 opacity=1 이 될 지 결정했습니다. ref
+
+### 2. useCount Custom Hook 구현
+
+`maxCountNumber:number`라는 parameter로 받았습니다. useEffect를 이용하여, 해당 parameter가 변경될 때마다 숫자가 변경될 수 있게끔 했습니다.
+
+> **setInterval과 setTimeOut**
+> 2s 동안 증가해야하기 때문에 setInterval을 사용할지 setTimeOut을 사용할지에 대한 고민이 많았습니다. setInterval 은 설정 시간을 기준으로 동작이 반복적으로 일어나고, setTimeout은 설정 시간이 지나고 동작이 한번 일어난다는 차이를 인지하고 setInterval 을 사용했습니다.
+
+- 빨라지는 구간 / 느려지는 구간을 나누어서 구현했습니다.
+
+빨라지는 구간에서 `setInterval`만을 사용했을 때 종료되는 시점이 달라지기 때문에 frame을 나누어 frame에 따른 수가 증가되게 끔했습니다. (빨라지는 구간에서 1씩 증가하다보니 가독성이 좋지 않고, 눈에 피로감을 주어 사용자에게 좋지 않은 영향을 준다고 생각하여 이렇게 구현했습니다.)
